@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데이터의 유형</title>
+
+    <script>
+        //1.원시형(기본형)데이터(5)
+        let a = 10; //숫자데이터
+        let b = '10'; //문자데이터, '',""로 숫자와 문자를 구별
+        let c = true; //부울형데이터
+        let n1; //값이 정의되지 않음(=undefined)
+        let n2 = null; //값이 없음(변수는 필요하지만 값이 아직 결정된게 없다)
+
+        document.write(a+'<br>');
+        document.write(a+'<br>');
+        document.write(c+'<br>');
+        document.write(n1+'<br>');
+        document.write(n2+'<br>');
+
+        document.write('변수 a의 데이터형식은' + typeof a + '입니다.<br>') //데이터형식 체크
+        document.write('변수 b의 데이터형식은' + typeof b + '입니다.<br>') //데이터형식 체크
+        document.write('변수 c의 데이터형식은' + typeof c + '입니다.<br>') //데이터형식 체크
+        document.write('변수 n1의 데이터형식은' + typeof n1 + '입니다.<br>') //데이터형식 체크
+        document.write('변수 n2의 데이터형식은' + typeof n2 + '입니다.<br>') //데이터형식 체크
+        document.write('<br>');
+
+        //2. 참조형데이터 - 여러개의 데이터를 한꺼번에 담을 수 있다(배열array)
+        let array1 = ['일','월','화','수','목','금','토'];
+
+        document.write(array1+'<br>'); //배열전체 출력
+        document.write(array1[1]+'<br>'); //배열은 '1'번째가아닌 '0'번째부터 시작
+        document.write(array1[6]+'<br>');
+        document.write(array1[0]+'<br>');
+        document.write('오늘은 ('+ array1[1]+')요일 입니다.<br>');
+
+        //실습예제1. 배열데이터에 인덱스번호를 입력하여 해당데이터 출력하기
+        let fruits = ['사과','배','감','귤','포도','오렌지','수박'];
+        document.write('제가 좋아하는 과일은' + fruits[0] +'입니다.<br>');
+        fruits[0] = '딸기'; //배열에 문자저장
+        document.write('제가 좋아하는 과일은' + fruits[0] +'입니다.<br>');
+
+        //실습예제2. 신장정보 출력하기
+        let info = ['kim','김시연','서울시','010-0000-0000','26','여'];
+        document.write('제 이름은' + info[1] +'이고, 나이는' + info[4] +'이며, 아이디는'+ info[0] +', 사는곳은 '+ info[2]+'입니다.<br>');
+        
+        //3. 함수형데이터
+        function sam(){
+            document.write('<p>함수형 데이터 입니다. 호출하기전까지 출력이 안된다.</p>'); //함수명으로 호출해야지 나옴
+        }
+        sam(); //함수명으로 호출하기
+
+        //4. 객체
+        //사용자 정의 객체
+        let person = {
+            'age':'21',  //css{속성:값};
+            'name':'강감찬',
+            'job':'웹퍼블리셔',
+            'height':'175'
+        }
+        //객체내용 출력하기
+        document.write(person.age+'<br>');
+        document.write(person.name+'<br>');
+        document.write(person.job+'<br>');
+        document.write(person.height+'<br>');
+        //내이름은 '강감찬'이고, 나이는 21세이며, 키는 175, 직업은 '웹퍼블리셔' 입니다.
+        // `(백틱문자) - es6문법에서 새로 추가된 기호로서 템플릿리터럴(`)이라고함.
+        document.write(`내 이름은 ${person.name}이고, 나이는 ${person.age}이며, 키는 ${person.height}cm이고, 직업은 ${person.job}입니다.<br>`);
+
+        //5. 내장객체
+        document.write('document 내장객체<hr>');
+        window.alert('window 내장객체');
+
+    </script>
+</head>
+<body>
+    <h2>데이터의 유형</h2>
+    <p>자바스크립트에서 사용하는 데이터의 유횽에 대해 알아본다</p>
+    <ul>
+        <li>문자데이터형(string)</li>
+        <li>숫자데이터형(number)</li>
+        <li>부울형데이터(boolean) - true(확인), false(취소)</li>
+        <li>찾을 수 없는 데이터형(undefined)</li>
+        <li>값이 없는 데이터(null)</li>
+        <li>배열형 데이터(array)</li>
+        <li>함수형 데이터(function)</li>
+        <li>객체(object) - document, window, alert, confirm, prompt, null ...</li>
+    </ul>
+
+    <p>typeof - typeof연산자는 사용자가 입력한 데이터가 어떤 종류의 형식인지를 알려주는 연산자이며 변수앞에 Numer, String등을 작성하면 실제 데이터 형식을 알 수 있다.</p>
+    <p>es6문법에서 새롭게 추가된 기호 >> 템플릿리터럴(`) : 연산자를 사용하지 않아도 간단한 방법으로 새로운 문자열을 삽입할 수있는 기능을 제공한다, 이를 문자열 인터플레이션(String Interpolation)이라 한다.</p>
+</body>
+</html>
