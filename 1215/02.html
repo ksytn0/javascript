@@ -58,49 +58,19 @@
         //8. 타입연산자 - typeof(데이터 타입을 구분해주는 연산자)
         document.write('변수의 jumsu타입은 '+ typeof(jumsu) + '입니다');
 
-
         /*실습예제
         문제1. 사용자가 입력한 아이디가 'master', 'asd', 'naver'중 하나만 입력해도 인증이 되며, 패스워드는 '1234'일 떄 인증이 되도록 결과값이 나오도록 함
         결과창
         '인증완료', '인증실패 다시 시도하시오'
         (hint:조건식?인증완료:인증실패)*/
 
-        let id, pw, login
+        let id = prompt('아이디를 입력하세요.');
+        let pw = prompt('패스워드를 입력하세요.');
 
-        id = prompt('아이디를 입력하세요')
-        if(id=master){
-            pw = prompt('비밀번호 입력하세요');
-        }
-        else if(id=asd){
-            pw = prompt('비밀번호 입력하세요');
-        }
-        else if(id=naver){
-            pw = prompt('비밀번호 입력하세요');
-        }
-        else{
-            document.write('없는 아이디입니다, 새로고침하고 다시입력해주세요.')
-        }
+        ((id=='master')||(id=='abcd')||(id=="naver"))&&(pw=='1234')?alert('인증완료'):alert('인증실패');
 
-        if(pw=1234){
-            document.write('인증완료')
-        }
-        else{
-            document.write('인증실패, 다시 비밀번호를 입력해주세요')
-        }
-
-        login > (id=true)&&(pw=flase)?alert('인증완료'):alert('인증실패, 다시 시도해주세요.');
-
-
-
-
-
-
-
-
-
-
-
-
+        let join = (id=='master'||id=='abcd'||id=="naver")&&(pw=='1234');
+        let result = join?alert('인증완료'):alert('인증실패');
     </script>
 
 </head>
