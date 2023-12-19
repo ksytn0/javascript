@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" type="text/css">
+    <title>실습예제(슬라이더를 활용한 여행배너 만들기)</title>
+    
+    <style>
+        .banner *{margin: 0px; padding: 0px;}
+        .banner{
+            width: 430px;
+            border: 2px solid #333;
+        }
+        .banner > img{
+            display: block;
+        }
+        .banner > div:first-child{
+            position: relative;
+            width: 100%;
+        }
+        .banner > div > span.fa-angle-left{
+            position: absolute; left: 0px;
+        }
+        .banner > div > span.fa-angle-right{
+            position: absolute; right: 0px;
+        }
+        #page{
+            padding: 5px 8px;
+            border: 1px solid #333;
+            color: #fff;
+            background: #333;
+            position: absolute;
+            top: 290px; right: 0px;
+        }
+        span.fas{
+            font-size: 25px;
+            padding: 5px 8px;
+            border: 1px solid rgba(51,51,51,.6);
+            color: #fff;
+            background: rgba(51,51,51,.6);
+            cursor: pointer;
+            top: 140px;
+        }
+    </style>
+</head>
+<body>
+    <h2>실습예제(슬라이더를 활용한 여행배너 만들기)</h2>
+
+    <article class="banner">
+        <div>
+            <span id="page"></span>
+            <span class="fas fa-angle-left" id="left_btn"></span>
+            <span class="fas fa-angle-right" id="right_btn"></span>
+        </div>
+
+        <img src="./images/photo1.jpg" alt="사진1" id="photos">
+    </article>
+    
+    <script>
+        let n = 1;
+        const l_btn = document.getElementById('left_btn');
+        const r_btn = document.getElementById('right_btn');
+
+        let page_n = document.getElementById('page');
+        page_n.innerHTML = n + '/4';
+
+        l_btn.addEventListener('click', function(){
+            if(n==1){
+                n=4;
+            }
+            else{
+                n--;
+            }
+            page_n.innerHTML = n + '/4';
+            document.getElementById('photos').src='./images/photo'+n+'.jpg';
+        })
+        r_btn.addEventListener('click', function(){
+            if(n==4){
+                n=1;
+            }
+            else{
+                n++;
+            }
+            page_n.innerHTML = n + '/4';
+            document.getElementById('photos').src='./images/photo'+n+'.jpg';
+        });
+    </script>
+</body>
+</html>

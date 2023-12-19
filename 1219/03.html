@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제어문03_반복문(while, do while, for)</title>
+</head>
+<body>
+    <h2>제어문03_반복문(while, do while, for)</h2>
+    <p>반복문은 작업을 반복수행할 때 사용하며, 조건문(if)이 프로그램을 지적으로 만든다면 반복문은 프로그램을 강력하게 만드는 역할을 한다.</p>
+    <p>주의사항 - 조건을 잘못 설정하면 무한루프에 빠지는 오류가 생기며, 브라우저에 화면몀춤현상이 발생됨.</p>
+
+    <ul>
+        <li>while문 - 반목조건</li>
+        <li>do while문 - 반복조건</li>
+        <li>for문 - 반복회수</li>
+        <li></li>
+    </ul>
+
+    <pre>
+        1.while문
+        while(조건식){
+            실행할 내용;
+        }
+
+        2. do whild문
+        do{
+            실행할 내용
+        }
+        while(조건식)
+
+        3.for문
+        for(초기값;조건식;증감식){
+            실행할 내용;
+        }
+    </pre>
+
+    <h3>실습1. 반복문을 사용하여 숫자 1부터 10까지 출력하기</h3>
+    <script>
+        //1.while문
+        let n = 1; //초가값선언
+        while(n<=10){ //조건에 만족할때까지 반복한다
+            document.write(n); //내용을 출력하고
+            n++; //기존값에 1씩 더함
+        }
+        document.write('<hr>');
+
+        //2.do while문
+        let n1 = 1;
+        do{
+            document.write(n1);
+            n1++;
+        }while(n1<=20);
+        document.write('<hr>');
+
+        //3.for문
+        for(n2=1;n2<=30;n2++){
+            document.write(n2);
+        }
+    </script>
+
+    <h3>실습2. 반복문을 활용하여 구구단 출력. ex)2*1=2, 2*2=4</h3>
+    <script>
+        for(a=2;a<=9;a++){
+            document.write('<p>----------------- 구구단 '+a+'단 계산하기 -----------------<br></p>');
+            for(b=1;b<=9;b++){
+                document.write('<p>'+a+'X'+b+'='+a*b+'</p>');
+            }
+        }
+    </script>
+
+    <h3>실습3. 반복문을 활용하여 테이블태그 만들기</h3>
+    <script>
+        document.write('<table>'); //table다음 caption와야함
+        document.write('<caption>테이블 제목이나 설명문구</caption>');
+        document.write('<tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>');
+
+        //조건문을 활용하여 31초과 35이하 공백으로 표시하기  **********코드가 이해가 안가는군....위치별로 글씨써지는거가***********
+        for(day=1;day<=35;day++){ //for문 안의 코드가 반복하는것이 n주차.
+            if(day%7==1){ //홀수번째출력(1,3,5,7...), 1~7까지만 출력하고 다음줄로 넘어감
+                document.write('<tr>');
+                document.write('<td>'+day+'</td>');
+                continue;
+            }
+            if(31<day&&day<=35){ //31초과~35이하는 공백
+                document.write('<td>&nbsp;</td>');
+                continue;
+            }
+            if(day%7==0){ //짝수번째출력(2,4,6,8...), 마지막 7칸이 되면 줄변경
+                document.write('<td>'+day+'</td>');
+                document.write('<tr>');
+                continue;
+            }
+            document.write('<td>'+day+'</td>'); //출력
+        }
+        document.write('</table>')
+    </script>
+</body>
+</html>
