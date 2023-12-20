@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수실습예제_신장,몸무게를 입력하여 BMI지수 구하기</title>
+
+    <style>
+        b[class]{
+            color: #fff;
+            font-size: 30px;
+            padding: 5px 8px;
+        }
+        .blue_color{background: rgb(0, 68, 255);}
+        .green_color{background: rgb(0, 148, 0);}
+        .orange_color{background: rgb(255, 153, 0);}
+        .purple_color{background: rgb(195, 0, 255);}
+        .red_color{background: #f00;}
+    </style>
+</head>
+<body>
+    <h2>함수실습예제_신장,몸무게를 입력하여 BMI지수 구하기</h2>
+    <p>자신의 키(신장), 몸무게(체중)를 입력하여 적정체중 구하기</p>
+    <ol>
+        <li>신장[m]을 입력하기 위한 input요소와 체중[kg]을 입력하기 위한 input요소를 사용</li>
+        <li>함수를 작성하여 신장,체중값을 사용하여 계산식 작성</li>
+        <li>연산된 결과값을 통해 적정체중인지를 비교(if)하여 결과를 출력</li>
+    </ol>
+
+    <p>BMI = 체중[kg]/(신장[m]*신장[m])</p>
+    <p>BMI 지수가 18.5 이하면 저체중, 18.5~23은 정상, 23~25는 과체중, 25~30은 비만, 30~35는 고도비만</p>
+    <p>저체중은 배경색 주황색, 정상은 녹색, 과체중은 파랑, 비만은 보라색, 고도비만은 빨강색 배경으로 서식을 지정함.</p>
+
+    <article>
+        <h3>BMI지수 구하기</h3>
+        <div>
+            <p><label for="height">신장</label> : <input type="text" id="height">m 예) 170cm => 1.7</p>
+            <p><label for="weight">체중</label> : <input type="text" id="weight">kg 예) 80kg => 80</p>
+            <p><input type="button" value="bmi지수 계산하기" id="cal_btn"></p>
+            <p></p>
+        </div>
+    </article>
+
+    <p id="result">출력결과</p>
+
+    <script>
+        //1. 사용자가 입력한 데이터 변수에 담기
+        let h, w;
+        const btn = document.getElementById('cal_btn');
+
+        //2. 입력한 데이터 출력
+        btn.addEventListener('click', function(){
+            h = document.getElementById('height').value;
+            w = document.getElementById('weight').value;
+            console.log(h); //값 출력확인
+            console.log(w);
+
+            let sum = parseInt(w/(Number(h)*Number(h))); //bmi지수계산, Number(숫자형데이터), parseInt(정수형?)
+            console.log(sum);
+
+            //if문을 활용하여 숫자데이터별로 내용 출력
+            if(sum<=18.5){
+                document.getElementById('result').innerHTML="<p><b class=blue_color>저체중</b>입니다.</p>";
+            }else if((sum>18.5)&&(sum<=23)){
+                document.getElementById('result').innerHTML="<p><b class=green_color>정상체중</b>입니다.</p>";
+            }else if((sum>23)&&(sum<=25)){
+                document.getElementById('result').innerHTML="<p><b class=orange_color>과체중</b>입니다.</p>";
+            }else if((sum>25)&&(sum<=30)){
+                document.getElementById('result').innerHTML="<p><b class=purple_color>비만</b>입니다.</p>";
+            }else{
+                document.getElementById('result').innerHTML="<p><b class=red_color>고도비만</b>입니다.</p>";
+            }
+        });
+    </script>
+    
+</body>
+</html>
