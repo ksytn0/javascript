@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 기초_객체(object)</title>
+
+    <style>
+        span{
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(255, 0, 191);
+        }
+    </style>
+</head>
+<body>
+    <h2>자바스크립트 기초_객체(object ex.function,event,for,if...)</h2>
+    <dl>
+        <dt>객체(object)란?</dt>
+        <dd>1. 이름(key)과 값(value)으로 구성된 속성을 담아 놓은 컨테이너이다.</dd>
+        <dd>2. 객체에 변수를 선언하면 속성()을 사용할 수 있다. ex)</dd>
+        <dd>3. 객체에 함수를 선언하면 메서드()를 사용할 수 있다. ex)</dd>
+    </dl>
+
+    <h3>1.객체의 종류</h3>
+    <p>내장객체 - 자바스크립트에서 미리 정해놓은 객체로 다양한 종류가 있다.</p>
+    <ul>
+        <li>수학객체(Math)</li>
+        <li>날짜(data)객체</li>
+        <li>배열(array)객체</li>
+        <li>문자열(string)객체</li>
+        <li>문서(document)객체</li>
+        <li>윈도우(window)객체</li>
+        <li>객체</li>
+        <li>객체</li>
+    </ul>
+
+    <p>사용자 정의 객체 - 내장객체를 제외한 사용자가 원하는 내용을 토대로 직접 객체를 선언하여 작성하는 방법</p>
+
+
+    <script>
+        //1. 사용자 정의 객체
+        let phone = new Object(); //객체정의문법 응용:QnA
+
+        phone.company = '애플';
+        phone.model = 'iPhone8 Plus';
+        phone.color = 'white';
+
+        //1-1.객체를 호출하여 내용 출력하기
+        document.write(`<p>나의 핸드폰 제조회사는 '<span>${phone.company}</span>'이고 모델명은 '<span>${phone.model}</span>'이며, 색상은 '<span>${phone.color}</span>'이다.</p>`);
+
+
+        //2. 사용자 정의 객체 만들기(2)
+        let person = {
+            firstName: '홍',
+            lastName: '길동',
+            age: '23',
+            height: '175',
+            weight: '70',
+
+            hello: function(){
+                return `<p>나의 이름은 '<span>${this.firstName}${this.lastName}</span>'이고, 나이는 '<span>${this.age}</span>'이며, 키는 '<span>${this.height}cm</span>', 몸무게는 '<span>${this.weight}kg</span>'입니다.</p>`;
+            }
+        }
+        //2-1.객체를 호출하여 내용 출력
+        document.write(`<p>나의 이름은 '<span>${person.firstName}${person.lastName}</span>'이고, 나이는 '<span>${person.age}</span>'이며, 키는 '<span>${person.height}cm</span>', 몸무게는 '<span>${person.weight}kg</span>'입니다.</p>`);
+        document.write(person.firstName+'<br>');
+        document.write(person.lastName+'<br>');
+        document.write(person.age+'<br>');
+        document.write(person.height+'<br>');
+        document.write(person.weight+'<br>');
+        document.write(person.hello());
+    </script>
+</body>
+</html>
