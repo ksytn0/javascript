@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" type="text/css">
+    <title>실습예제_배열객체를 사용하여 쿠팡추천광고상품 클릭 배너만들기</title>
+
+    <style>
+        .banner *{margin: 0px; padding: 0px;}
+        .banner{
+            width: 325px; height: 700px;
+            border: 2px solid #333;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+        .tit{
+            width: 100%; height: 100px;
+            position: relative;
+        }
+        .tit > h3{
+            display: inline-block;
+            font-size: 30px;
+            transform: translateX(30px);
+            line-height: 55px;
+        }
+        .tit > p{
+            font-size: 25px;
+            font-weight: bold;
+            color: rgb(39, 187, 255);
+            float: right;
+            transform: translateX(-30px);
+        }
+        .btn{
+            position: relative;
+        }
+        .btn > .fas{
+            padding: 30px 8px;
+            color: #fff;
+            background: rgba(0,0,0,.6);
+            top: 240px;
+        }
+        .btn > .fa-angle-left{
+            position: absolute; left: 0px;
+        }
+        .btn > .fa-angle-right{
+            position: absolute; right: 0px;
+        }
+        #product{
+            width: 325px; height:600px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>실습과제_배열객체를 사용하여 쿠팡추천광고상품 클릭 배너만들기</h2>
+
+    <article class="banner">
+        <div class="tit">
+            <h3>HOT! TREND</h3>
+            <p>추천광고상품</p>
+        </div>
+        <div class="btn">
+            <span class="fas fa-angle-left" id="left_btn"></span>
+            <span class="fas fa-angle-right" id="right_btn"></span>
+            <div id="product"></div>
+        </div>
+    </article>
+
+    <script>
+        //배너기능 (1).새로고침시 랜덤이미지 변경 (2).좌우버튼 클릭시 이미지변경
+        //1) 배열객체를 생성하여 상품파일명을 배열로 담는다.
+        let production = ['product1','product2','product3','product4','product5','product6','product7','product8','product9','product10','product11','product12','product13','product14','product15','product16','product17','product18'];
+        let ran_n = Math.ceil(Math.random()*17);
+
+        document.getElementById('product').innerHTML='<img src="./images/'+production[ran_n]+'.jpg" alt="photo1">';
+
+        //버튼
+        let n=ran_n;
+        const l_btn = document.getElementById('left_btn');
+        const r_btn = document.getElementById('right_btn');
+
+        l_btn.addEventListener('click',function(){
+            if(n==0){
+                n=17;
+            }else{
+                n--;
+            }
+            document.getElementById('product').innerHTML='<img src="./images/'+production[n]+'.jpg" alt="photo">';
+        });
+        r_btn.addEventListener('click',function(){
+            if(n==17){
+                n=0;
+            }else{
+                n++;
+            }
+            document.getElementById('product').innerHTML='<img src="./images/'+production[n]+'.jpg" alt="photo">';
+        });
+    </script>
+</body>
+</html>
