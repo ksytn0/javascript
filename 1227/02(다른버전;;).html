@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>자바스크립트기초_내장객체_윈도우객체(window)</title>
+  <style>
+    *{margin:0px;padding:0px;}
+    #popup{
+      width:100%;height:100%;
+      background:rgba(0,0,0,.8);
+      position:fixed;
+      top:0px;left:0px; /*이거 왜 써야하는거야? */
+      display: none;
+      transition: 0.5s;
+    }
+    #popup_inner{
+      position:absolute;
+      left:50%;top:50%;
+      transform:translate(-50%, -50%);
+      width:380px;height:430px;
+    }
+    #popup_inner img{display:block;}
+    #popup_inner input[type=button]{
+      border:none;
+      width:100%;
+      display:block;line-height:46px;
+      background:#000;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+    <p>야라라라라라라야라라리라랄ㄹ랄라라라라라라라랄</p>
+  </div>
+    
+  <div id="popup">
+    <div id="popup_inner">
+      <img src="./images/banner02.jpg" alt="광고배너">
+      <input type="button" value="닫기" id="close_btn">
+    </div>
+  </div>
+
+  <script>
+    //1. 변수
+    let popup = document.getElementById('popup');
+    let c_btn = document.getElementById('close_btn');
+
+    //2.
+    popup.style.display='block';
+    
+    c_btn.addEventListener('click', function(){
+      popup.style.opacity='0'; //0아니면 1만 가능 0:없다, 1:있다.
+      setTimeout(display_none,1000); //초는 사실 의미없음
+    });
+    function display_none(){
+      popup.style.display='none';
+    }
+  </script>
+
+</body>
+</html>

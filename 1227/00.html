@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>창배너</title>
+
+    <style>
+        *{margin: 0px; padding: 0px;}
+        .banner{
+            width: 360px; height: 355px;
+        }
+        .banner > img{display:block;}
+        h2{display: none;}
+        #close_btn{
+            width: 100%; height: 30px;
+            background: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h2>창배너_닫기버튼누르면 창 닫히기</h2>
+    <div class="banner">
+        <img src="./images/banner.jpg" alt="">
+        <input type="button" value="닫기" id="close_btn">
+    </div>
+    
+
+    <script>
+        let c_btn = document.getElementById('close_btn');
+
+        c_btn.addEventListener('click', function(){
+            window.close();
+        });
+    </script>    
+</body>
+</html>
